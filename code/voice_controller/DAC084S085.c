@@ -3,7 +3,7 @@
 #include "stm32f051x8.h"
 
 // Functions
-void _dac_write(uint16_t msg);
+static void _dac_write(uint16_t msg);
 
 void dac_init(void) {
 	// Enable SPI and GPIO clocks
@@ -29,20 +29,20 @@ void dac_init(void) {
 	// Set TI mode (uses NSS as frame sync)
 	// Set frame size to 16 bit
 	SPI1->CR2 = SPI_CR2_FRF | SPI_CR2_DS;
+	
+	// Enable DMA streams in Tx and Rx in DMA regs
+	// Enable Tx buff in TXDMAEN in CR2
 
 	// Enable SPI
 	SPI1->CR1 |= SPI_CR1_SPE;
 }
 
 // Write properly-formatted data to DAC
-void _dac_write(uint16_t msg) {
+static void _dac_write(uint16_t msg) {
 	SPI1->DR = msg;
 }
 
 // Application interface, set the next value of the DAC to be written.
-void set_dac_channel(dac_chan_t chan, uint8_t data) {
-	uint16_t msg = 0x0000;
-	
-	msg = (data << DATA_OFFSET) | (WRITE_REG_DO_UPDATE << OPERATION_OFFSET) | (chan << CHANNEL_OFFSET); 
+void set_dac_channel(uint16_t msg) {
 	_dac_write(msg);
 }

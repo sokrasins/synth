@@ -12,4 +12,6 @@
 void oscillator_init(void);
 void set_osc_level(uint8_t chan, uint8_t level);
 
+void TIM14_IRQHandler(void);
+
 #endif

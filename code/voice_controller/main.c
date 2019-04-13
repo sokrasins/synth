@@ -11,19 +11,6 @@
 #include "Board_LED.h"
 #include "DAC084S085.h"
 
-
-#define FREQ	8500
-#define TICK_FREQ 400000
-
-// Functions
-
-// Delay milliseconds (blocking)
-void Delay (uint32_t dlyTicks) {
-  uint32_t curTicks;
-  curTicks = msTicks;
-  while ((msTicks - curTicks) < dlyTicks) { __NOP(); }
-}
-
 // Main
 
 int main (void) {
