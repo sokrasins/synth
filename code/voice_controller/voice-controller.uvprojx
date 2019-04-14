@@ -407,6 +407,11 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
+            <File>
+              <FileName>VCA.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\VCA.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -431,6 +436,11 @@
               <FileName>InitDevice.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\InitDevice.h</FilePath>
+            </File>
+            <File>
+              <FileName>VCA.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\VCA.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -846,6 +856,11 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
+            <File>
+              <FileName>VCA.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\VCA.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -870,6 +885,11 @@
               <FileName>InitDevice.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\InitDevice.h</FilePath>
+            </File>
+            <File>
+              <FileName>VCA.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\VCA.h</FilePath>
             </File>
           </Files>
         </Group>

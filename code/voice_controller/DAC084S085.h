@@ -27,6 +27,6 @@ typedef enum dac_chan_e {
 
 // Functions
 void dac_init(void);
-void set_dac_channel(uint16_t msg);
+void set_dac_channel(dac_chan_t chan, uint8_t val);
 
 #endif // DAC084S085_H
