@@ -44,5 +44,6 @@ static void _dac_write(uint16_t msg) {
 
 // Application interface, set the next value of the DAC to be written.
 void set_dac_channel(uint16_t msg) {
-	_dac_write(msg);
+	SPI1->DR = msg;
+	//_dac_write(msg);
 }

@@ -18,12 +18,13 @@ int main (void) {
 	device_init();
 	oscillator_init();
 	
+	set_osc_freq(0, 110);
+	set_osc_freq(1, 220);
+	set_osc_freq(2, 440);
+	set_osc_freq(3, 880);
+	
 	// Main loop
   for (;;) {
-		set_osc_level(1, 0xFF);
-		Delay(1);
-		
-		set_osc_level(1, 0x00);
-		Delay(1);
+
   }
 }
