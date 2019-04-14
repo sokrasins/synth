@@ -408,9 +408,9 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>VCA.c</FileName>
+              <FileName>Control.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\VCA.c</FilePath>
+              <FilePath>.\Control.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -438,9 +438,9 @@
               <FilePath>.\InitDevice.h</FilePath>
             </File>
             <File>
-              <FileName>VCA.h</FileName>
+              <FileName>Control.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\VCA.h</FilePath>
+              <FilePath>.\Control.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -857,9 +857,9 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>VCA.c</FileName>
+              <FileName>Control.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\VCA.c</FilePath>
+              <FilePath>.\Control.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -887,9 +887,9 @@
               <FilePath>.\InitDevice.h</FilePath>
             </File>
             <File>
-              <FileName>VCA.h</FileName>
+              <FileName>Control.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\VCA.h</FilePath>
+              <FilePath>.\Control.h</FilePath>
             </File>
           </Files>
         </Group>

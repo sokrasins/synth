@@ -12,7 +12,6 @@
 
 #include "interrupts.h"
 #include "Oscillator.h"
-#include "VCA.h"
 
 // Main
 int main (void) {
@@ -22,7 +21,6 @@ int main (void) {
 	// Component initialization
 	device_init();
 	oscillator_init();
-	vca_init();
 	
 	// Oscillator setup
 	for (i=0; i<4; i++) {
