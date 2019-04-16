@@ -15,7 +15,6 @@
 	 SystemCoreClockConfigure();
 	 SystemCoreClockUpdate();
 	 SysTick_Config(SystemCoreClock / 1000);                  // SysTick 1 msec interrupt
-	 LED_Initialize();
  }
  
  void SystemCoreClockConfigure(void) {
