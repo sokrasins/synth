@@ -1,10 +1,14 @@
+/* Oscillator.c
+ * Configure oscillators adn manage the sample clock
+ * By Stan Okrasinski
+ */
+
 #include "Oscillator.h"
 
 #include <string.h>
 #include <stdbool.h>
 
-#include "DAC084S085.h"
-#include "Board_LED.h"  
+#include "DAC084S085.h" 
 
 // Local functions
 void sample_clock_init(void);

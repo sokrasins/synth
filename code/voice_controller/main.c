@@ -1,16 +1,11 @@
 /*
  * By Stan Okrasinski
- *
- * Peripheral Usage:
- * - TIM14: Sample Clock
- * - SPI1: DAC communication
-		 - PA4, PA5, PA7
  */
 
 #include "InitDevice.h"
 #include "stm32f0xx.h"
 
-#include "interrupts.h"
+#include "Time.h"
 #include "Oscillator.h"
 #include "Control.h"
 

@@ -1,5 +1,5 @@
 /* InitDevice.h
- * Header defining all decivee initialization stuff
+ * Header defining core initialization stuff
  * Stan Okrasinski
  */
 

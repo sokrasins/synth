@@ -1,3 +1,8 @@
+/* DAC084S085.h
+ * Driver for 8-bit TI DAC
+ * Stan Okrasinski
+ */
+
 #include "DAC084S085.h"
 
 #include "stm32f051x8.h"

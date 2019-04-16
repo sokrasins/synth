@@ -1,3 +1,8 @@
+/* Control.h
+ * Code managing the oscillator effects
+ * Stan Okrasinski
+ */
+
 #include "Control.h"
 
 #include "stm32f051x8.h"
@@ -109,12 +114,16 @@ void timer_init(pwm_config_t *pwm) {
 }
 
 ctrl_err_t set_vca_level(uint8_t idx, uint16_t level) {
+	// Check for valid voice #
 	if (idx >= NUM_CHANNELS) {
 		return CTRL_NUM_OUT_OF_BOUNDS;
 	}
 	
+	// Set register value, scaling for max pwm value
 	*ctrl[idx].vca_pwm_reg = (level*PWM_RELOAD)/0xFFFF;
 	
+	// Just go ahead and update all timers because lazy
+	// TODO: Update the RIGHT timer
 	TIM1->EGR |= TIM_EGR_UG;
 	TIM2->EGR |= TIM_EGR_UG;
 	TIM3->EGR |= TIM_EGR_UG;

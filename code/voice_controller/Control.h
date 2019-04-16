@@ -1,6 +1,26 @@
 /* Control.h
  * Code managing the oscillator effects
  * Stan Okrasinski
+ *
+ * Peripheral usage:
+ * 
+ * TIM1: PWM generation - no interrupts
+ * - PA08: osc 0, VCA
+ * - PA09: osc 0, filt f
+ * - PA10: osc 0, filt q
+ * - PA11: osc 1, VCA
+ *
+ * TIM2: PWM generation - no interrupts
+ * - PA00: osc 1, filt f
+ * - PA01: osc 1, filt q
+ * - PA02: osc 2, VCA
+ * - PA03: osc 2, filt f
+ *
+ * TIM3: PWM generation - no interrupts
+ * - PC06: osc 2, filt q
+ * - PC07: osc 3, VCA
+ * - PC08: osc 3, filt f
+ * - PC09: osc 3, filt q
  */
 
 #ifndef CONTROL_H

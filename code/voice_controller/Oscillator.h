@@ -1,6 +1,11 @@
 /* Oscillator.h
- * Code managing the oscillators
+ * Configure oscillators adn manage the sample clock
  * Stan Okrasinski
+ *
+ * Peripheral usage:
+ *
+ * TIM14 - Sample Clock
+ * - interrupt freq: SAMPLE_FREQ
  */
 
 #ifndef OSCILLATOR_H

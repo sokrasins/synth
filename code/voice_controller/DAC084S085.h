@@ -1,3 +1,15 @@
+/* DAC084S085.h
+ * Driver for 8-bit TI DAC
+ * Stan Okrasinski
+ *
+ * Peripheral usage:
+ *
+ * SPI1 - DAC comm
+ * - PA04: NSS
+ * - PA05: SCK
+ * - PA07: MOSI
+ */
+
 #ifndef DAC084S085_H
 #define DAC084S085_H
 

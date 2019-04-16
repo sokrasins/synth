@@ -5,9 +5,6 @@
  
 #include "InitDevice.h"
 #include "stm32f0xx.h"                  // Device header
- 
-#include "Board_LED.h"                  // ::Board Support:LED
-//#include "Board_Buttons.h"              // ::Board Support:Buttons
 
  void SystemCoreClockConfigure(void);
 
