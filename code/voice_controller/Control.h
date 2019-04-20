@@ -17,11 +17,12 @@
  * - PA03: osc 2, filt f
  *
  * TIM3: PWM generation - no interrupts
- * - PC06: osc 2, filt q
- * - PC07: osc 3, VCA
- * - PC08: osc 3, filt f
- * - PC09: osc 3, filt q
+ * - PC06: osc 2, filt q  // TODO: Change to PB4
+ * - PC07: osc 3, VCA     // TODO: Change to PB5
+ * - PC08: osc 3, filt f  // TODO: Change to PB0
+ * - PC09: osc 3, filt q  // TODO: Change to PB1
  */
+ 
 
 #ifndef CONTROL_H
 #define CONTROL_H
