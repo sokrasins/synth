@@ -11,7 +11,7 @@
 
 // Main
 int main (void) {
-	uint8_t i;
+	uint8_t i=0;
 	uint16_t j;	
 	uint16_t base_freq = 55;
 	
@@ -21,11 +21,11 @@ int main (void) {
 	control_init();
 	
 	// Oscillator setup
-	for (i=0; i<4; i++) {
+	//for (i=0; i<4; i++) {
 		set_osc_wave_type(i, WAVE_SQUARE);
 		set_osc_freq(i, base_freq*(i+1));
 		set_osc_enable(i, true);
-	}
+	//}
 	
 	// Main loop
   for (;;) {

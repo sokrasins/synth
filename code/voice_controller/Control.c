@@ -40,6 +40,8 @@ void control_init(void) {
 	RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
 	timer_init(&config);
 	
+	/*
+	
 	// Configure Timer 3
 	config.gpio = GPIOC;
 	config.tim = TIM3;
@@ -52,6 +54,8 @@ void control_init(void) {
 	RCC->AHBENR |= RCC_AHBENR_GPIOCEN;
 	timer_init(&config);
 	
+	*/
+	
 	// Fill up voice control groups
 	ctrl[0].vca_pwm_reg = &TIM1->CCR1;
 	ctrl[0].filt_f_pwm_reg = &TIM1->CCR2;
@@ -61,13 +65,14 @@ void control_init(void) {
 	ctrl[1].filt_f_pwm_reg = &TIM2->CCR1;
 	ctrl[1].filt_q_pwm_reg = &TIM2->CCR2;
 	
-	ctrl[2].vca_pwm_reg = &TIM2->CCR3;
-	ctrl[2].filt_f_pwm_reg = &TIM2->CCR4;
-	ctrl[2].filt_q_pwm_reg = &TIM3->CCR1;
+	//ctrl[2].vca_pwm_reg = &TIM2->CCR3;
+	//ctrl[2].filt_f_pwm_reg = &TIM2->CCR4;
+	//ctrl[2].filt_q_pwm_reg = &TIM3->CCR1;
 	
-	ctrl[3].vca_pwm_reg = &TIM3->CCR2;
-	ctrl[3].filt_f_pwm_reg = &TIM3->CCR3;
-	ctrl[3].filt_q_pwm_reg = &TIM3->CCR4;
+	//ctrl[3].vca_pwm_reg = &TIM3->CCR2;
+	//ctrl[3].filt_f_pwm_reg = &TIM3->CCR3;
+	//ctrl[3].filt_q_pwm_reg = &TIM3->CCR4;
+
 }
 
 void timer_init(pwm_config_t *pwm) {

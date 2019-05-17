@@ -10315,6 +10315,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 VSSA</text>
 <text x="40.64" y="25.4" size="1.778" layer="97">VDD
 VSS</text>
+<text x="109.22" y="25.4" size="1.778" layer="90">- Add Power Switch</text>
+<text x="109.22" y="22.86" size="1.778" layer="90">- Add Power LEDs</text>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0" smashed="yes"/>
