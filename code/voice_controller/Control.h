@@ -49,9 +49,11 @@ typedef struct {
 	TIM_TypeDef *tim;
 	GPIO_TypeDef *gpio;
 	uint8_t pins[NUM_PINS]; 
+	uint8_t afr;
 } pwm_config_t;
 
 void control_init(void);
 ctrl_err_t set_vca_level(uint8_t idx, uint16_t level);
+ctrl_err_t set_filt_cutoff(uint8_t idx, uint16_t level);
 
 #endif // CONTROL_H

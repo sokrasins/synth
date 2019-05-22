@@ -19,6 +19,7 @@ void control_init(void) {
 	// Configure Timer 1
 	config.gpio = GPIOA;
 	config.tim = TIM1;
+	config.afr = 2;
 	config.pins[0] = 8;
 	config.pins[1] = 9;
 	config.pins[2] = 10;
@@ -31,6 +32,7 @@ void control_init(void) {
 	// Configure Timer 2
 	config.gpio = GPIOA;
 	config.tim = TIM2;
+	config.afr = 2;
 	config.pins[0] = 0;
 	config.pins[1] = 1;
 	config.pins[2] = 2;
@@ -40,21 +42,18 @@ void control_init(void) {
 	RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
 	timer_init(&config);
 	
-	/*
-	
 	// Configure Timer 3
-	config.gpio = GPIOC;
+	config.gpio = GPIOB;
 	config.tim = TIM3;
-	config.pins[0] = 6;
-	config.pins[1] = 7;
-	config.pins[2] = 8;
-	config.pins[3] = 9;
+	config.afr = 1;
+	config.pins[0] = 4;
+	config.pins[1] = 5;
+	config.pins[2] = 0;
+	config.pins[3] = 1;
 	
 	RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
-	RCC->AHBENR |= RCC_AHBENR_GPIOCEN;
+	RCC->AHBENR |= RCC_AHBENR_GPIOBEN;
 	timer_init(&config);
-	
-	*/
 	
 	// Fill up voice control groups
 	ctrl[0].vca_pwm_reg = &TIM1->CCR1;
@@ -65,13 +64,13 @@ void control_init(void) {
 	ctrl[1].filt_f_pwm_reg = &TIM2->CCR1;
 	ctrl[1].filt_q_pwm_reg = &TIM2->CCR2;
 	
-	//ctrl[2].vca_pwm_reg = &TIM2->CCR3;
-	//ctrl[2].filt_f_pwm_reg = &TIM2->CCR4;
-	//ctrl[2].filt_q_pwm_reg = &TIM3->CCR1;
+	ctrl[2].vca_pwm_reg = &TIM2->CCR3;
+	ctrl[2].filt_f_pwm_reg = &TIM2->CCR4;
+	ctrl[2].filt_q_pwm_reg = &TIM3->CCR1;
 	
-	//ctrl[3].vca_pwm_reg = &TIM3->CCR2;
-	//ctrl[3].filt_f_pwm_reg = &TIM3->CCR3;
-	//ctrl[3].filt_q_pwm_reg = &TIM3->CCR4;
+	ctrl[3].vca_pwm_reg = &TIM3->CCR2;
+	ctrl[3].filt_f_pwm_reg = &TIM3->CCR3;
+	ctrl[3].filt_q_pwm_reg = &TIM3->CCR4;
 
 }
 
@@ -85,7 +84,7 @@ void timer_init(pwm_config_t *pwm) {
 	
 	// Set pins to AF2
 	for(i=0; i<NUM_PINS; i++) {
-		pwm->gpio->AFR[pwm->pins[i]>>3] |= (0x02<<(4*(pwm->pins[i]-8*(pwm->pins[i]>>3))));
+		pwm->gpio->AFR[pwm->pins[i]>>3] |= ((pwm->afr)<<(4*(pwm->pins[i]-8*(pwm->pins[i]>>3))));
 	}
 	
 	// Set up timebase
@@ -126,6 +125,24 @@ ctrl_err_t set_vca_level(uint8_t idx, uint16_t level) {
 	
 	// Set register value, scaling for max pwm value
 	*ctrl[idx].vca_pwm_reg = (level*PWM_RELOAD)/0xFFFF;
+	
+	// Just go ahead and update all timers because lazy
+	// TODO: Update the RIGHT timer
+	TIM1->EGR |= TIM_EGR_UG;
+	TIM2->EGR |= TIM_EGR_UG;
+	TIM3->EGR |= TIM_EGR_UG;
+	
+	return CTRL_ERROR_NONE;
+}
+
+ctrl_err_t set_filt_cutoff(uint8_t idx, uint16_t level) {
+	// Check for valid voice #
+	if (idx >= NUM_CHANNELS) {
+		return CTRL_NUM_OUT_OF_BOUNDS;
+	}
+	
+	// Set register value, scaling for max pwm value
+	*ctrl[idx].filt_f_pwm_reg = (level*PWM_RELOAD)/0xFFFF;
 	
 	// Just go ahead and update all timers because lazy
 	// TODO: Update the RIGHT timer

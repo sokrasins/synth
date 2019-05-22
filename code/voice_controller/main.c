@@ -21,20 +21,21 @@ int main (void) {
 	control_init();
 	
 	// Oscillator setup
-	//for (i=0; i<4; i++) {
+	for (i=0; i<4; i++) {
 		set_osc_wave_type(i, WAVE_SQUARE);
 		set_osc_freq(i, base_freq*(i+1));
 		set_osc_enable(i, true);
-	//}
+	}
+	
+	set_osc_freq(0, 1000UL);
+	set_filt_cutoff(0, 32768); // TODO: Why does it only go to 32768?
 	
 	// Main loop
   for (;;) {
-		for(i=0; i<8; i++) {
-			set_osc_freq(0, base_freq*(1UL<<i));
-			for(j=0; j<655; j++) {
-				set_vca_level(0, j*100);
-				Delay(1);
-			}
+		for(j=0; j<655; j++) {
+			set_vca_level(0, j*100);
+			//set_filt_cutoff(0, j*100);
+			Delay(10);
 		}
   }
 }
