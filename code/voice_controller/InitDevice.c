@@ -12,6 +12,10 @@
 	 SystemCoreClockConfigure();
 	 SystemCoreClockUpdate();
 	 SysTick_Config(SystemCoreClock / 1000);                  // SysTick 1 msec interrupt
+	 
+	 GPIOA->OTYPER &= ~(1UL<<15);															// LED pin as push-pull
+	 GPIOA->MODER |= 1UL<<30;																	// LED pin as output
+	 GPIOA->BSRR |= 1UL<<15;																	// Turn LED on
  }
  
  void SystemCoreClockConfigure(void) {

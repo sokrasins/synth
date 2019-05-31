@@ -9,6 +9,8 @@
 #include "Oscillator.h"
 #include "Control.h"
 
+void led_init(void);
+
 // Main
 int main (void) {
 	uint8_t i=0;
@@ -19,6 +21,7 @@ int main (void) {
 	device_init();
 	oscillator_init();
 	control_init();
+	led_init();
 	
 	// Oscillator setup
 	for (i=0; i<4; i++) {
@@ -38,4 +41,10 @@ int main (void) {
 			Delay(10);
 		}
   }
+}
+
+void led_init(void) {
+	GPIOA->OTYPER &= ~(1UL<<15);															// LED pin as push-pull
+	GPIOA->MODER |= 1UL<<30;																	// LED pin as output
+	GPIOA->BSRR |= 1UL<<15;																	  // Turn LED on
 }

@@ -11,6 +11,11 @@ volatile uint32_t msTicks;
 
 void SysTick_Handler(void) {
   msTicks++;
+	
+	if (msTicks%100 == 0) {
+		// toggle LED
+		GPIOA->ODR ^= 1UL<<15;
+	}
 }
 
 // Delay milliseconds (blocking)
