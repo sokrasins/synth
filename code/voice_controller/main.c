@@ -31,14 +31,14 @@ int main (void) {
 	}
 	
 	set_osc_freq(0, 1000UL);
-	set_filt_cutoff(0, 32768); // TODO: Why does it only go to 32768?
+	set_filt_cutoff(0, 0x8000);
 	
 	// Main loop
   for (;;) {
 		for(j=0; j<655; j++) {
-			set_vca_level(0, j*100);
-			//set_filt_cutoff(0, j*100);
-			Delay(10);
+			//set_vca_level(0, j*100);
+			set_filt_cutoff(0, j*100);
+			Delay(1);
 		}
   }
 }

@@ -12352,8 +12352,8 @@ Source: www.kingbright.com</description>
 <part name="C18" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1u"/>
 <part name="C19" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1u"/>
 <part name="GND15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="Q1" library="LITTLEBITS" deviceset="TRANS-BJT_NPN-DUAL" device="-BC847BS-JBLMASK"/>
-<part name="Q2" library="LITTLEBITS" deviceset="TRANS-BJT_PNP-DUAL" device="-BC857-JBLMASK"/>
+<part name="Q1" library="LITTLEBITS" deviceset="TRANS-BJT_NPN-DUAL" device="-BC847BS-JBLMASK" value="NPN"/>
+<part name="Q2" library="LITTLEBITS" deviceset="TRANS-BJT_PNP-DUAL" device="-BC857-JBLMASK" value="PNP"/>
 <part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1k"/>
 <part name="C20" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="10u"/>
 <part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="2.7M"/>
