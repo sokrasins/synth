@@ -1,2 +1,4 @@
-# All sim files but the schematics
+# Ignore all files
+*.*
+# ...except schematic files
 !*.asc
